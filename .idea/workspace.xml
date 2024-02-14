@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b357b40-1b29-4803-b200-3e6213e8c1a7" name="Changes" comment="pasando archivos csv">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/AutorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Autor.java" afterDir="false" />
+    <list default="true" id="8b357b40-1b29-4803-b200-3e6213e8c1a7" name="Changes" comment="especificando las tablas a través de las clases">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Libro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Libro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tema.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,21 +48,6 @@
     &quot;last_opened_file_path&quot;: &quot;/home/dam2a/IdeaProjects/M06_JPAPractica_NereidaBarba&quot;
   }
 }</component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="LecturaliaJPA_NereidaBarba" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="LecturaliaJPA_NereidaBarba" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -123,7 +105,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707925116135</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="especificando las tablas a través de las clases">
+      <option name="closed" value="true" />
+      <created>1707926549139</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1707926549139</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -132,6 +122,7 @@
     <MESSAGE value="menu y generar javadoc para tenerlo a mano" />
     <MESSAGE value="apartado ddbb" />
     <MESSAGE value="pasando archivos csv" />
-    <option name="LAST_COMMIT_MESSAGE" value="pasando archivos csv" />
+    <MESSAGE value="especificando las tablas a través de las clases" />
+    <option name="LAST_COMMIT_MESSAGE" value="especificando las tablas a través de las clases" />
   </component>
 </project>

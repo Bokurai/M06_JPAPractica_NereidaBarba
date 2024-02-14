@@ -14,11 +14,10 @@ public class Tema implements Serializable {
     String nombre_tema;
 
     public Tema(String nombre_tema) {
-        super();
         this.nombre_tema = nombre_tema;
     }
     public Tema() {
-        super();
+
     }
 
     public String getNombre_tema() {
