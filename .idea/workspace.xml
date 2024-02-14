@@ -4,57 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b357b40-1b29-4803-b200-3e6213e8c1a7" name="Changes" comment="declarar packages y primeras clases">
-      <change afterPath="$PROJECT_DIR$/docs/Controller/LibroController.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/Controller/TemaController.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/Controller/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/Controller/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/MainLecturaliaJPA.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/Model/Libro.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/Model/Tema.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/Model/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/Model/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/View/MenuLecturaliaJPA.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/View/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/View/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/allclasses-index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/allpackages-index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/copy.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/element-list" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/help-doc.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/index-files/index-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/index-files/index-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/index-files/index-3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/index-files/index-4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/index-files/index-5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/legal/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/legal/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/legal/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/legal/jquery.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/legal/jqueryUI.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/member-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/module-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/overview-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/overview-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/package-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/resources/glass.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/resources/x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/script-dir/jquery-3.6.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/script-dir/jquery-ui.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/script-dir/jquery-ui.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/search-page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/search.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/search.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/stylesheet.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/tag-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/type-search-index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="8b357b40-1b29-4803-b200-3e6213e8c1a7" name="Changes" comment="menu y generar javadoc para tenerlo a mano">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/schema.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/MenuLecturaliaJPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MenuLecturaliaJPA.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,12 +98,21 @@
       <option name="project" value="LOCAL" />
       <updated>1707404720501</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="menu y generar javadoc para tenerlo a mano">
+      <option name="closed" value="true" />
+      <created>1707923562596</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1707923562596</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="declarar packages y primeras clases" />
-    <option name="LAST_COMMIT_MESSAGE" value="declarar packages y primeras clases" />
+    <MESSAGE value="menu y generar javadoc para tenerlo a mano" />
+    <option name="LAST_COMMIT_MESSAGE" value="menu y generar javadoc para tenerlo a mano" />
   </component>
 </project>
