@@ -9,10 +9,10 @@ import java.io.Serializable;
 public class Libro implements Serializable {
 
     @Id
-    @Column
+    @Column(name = "id")
     private long id;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "tema")
     Tema tema;
 
@@ -29,12 +29,10 @@ public class Libro implements Serializable {
     @Column(name = "resumen")
     String resumen;
 
-    public Libro(long id, Tema tema, String titulo, Autor autor, String titulo_resumen, String resumen) {
+    public Libro(long id, String titulo, String titulo_resumen, String resumen) {
         super();
         this.id = id;
-        this.tema = tema;
         this.titulo = titulo;
-        this.autor = autor;
         this.titulo_resumen = titulo_resumen;
         this.resumen = resumen;
     }

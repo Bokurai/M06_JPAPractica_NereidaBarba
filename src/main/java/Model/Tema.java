@@ -9,7 +9,6 @@ import java.io.Serializable;
 public class Tema implements Serializable {
 
     @Id
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @Column(name = "nombre_tema")
     String nombre_tema;
 
@@ -17,7 +16,6 @@ public class Tema implements Serializable {
         this.nombre_tema = nombre_tema;
     }
     public Tema() {
-
     }
 
     public String getNombre_tema() {
