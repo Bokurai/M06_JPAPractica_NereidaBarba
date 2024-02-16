@@ -1,3 +1,7 @@
+import Controller.AutorController;
+import Controller.LibroController;
+import Controller.TemaController;
+import View.MenuLecturaliaJPA;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
@@ -15,7 +19,7 @@ public class MainLecturaliaJPA {
     private static SessionFactory buildSessionFactory() {
         try {
             StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder()
-                    .configure("hibernate.cfg.xml").build();
+                    .configure("persistence.xml").build();
             Metadata metadata = new MetadataSources(standardRegistry).getMetadataBuilder().build();
             return metadata.getSessionFactoryBuilder().build();
         } catch (HibernateException he) {
@@ -36,6 +40,58 @@ public class MainLecturaliaJPA {
     }
 
     public static void main(String[] args) {
+       EntityManagerFactory entityManagerFactory = createEntityManagerFactory();
+        LibroController libroController = new LibroController(entityManagerFactory);
+        TemaController temaController = new TemaController(entityManagerFactory);
+        AutorController autorController = new AutorController(entityManagerFactory);
+        MenuLecturaliaJPA menu = new MenuLecturaliaJPA();
 
+
+        int op = menu.menuPrincipal();
+        while (op >= 0 && op < 13){
+            switch (op) {
+                case 1:
+                    break;
+
+                case 2:
+                    break;
+
+                case 3:
+                    System.out.println("Aquí tiene los temas disponibles:");
+                    break;
+
+                case 4:
+                    break;
+
+                case 5:
+                    break;
+
+                case 6:
+                    break;
+
+                case 7:
+                    break;
+
+                case 8:
+                    System.out.println("Aquí tiene los temas disponibles:");
+                    break;
+
+                case 9:
+                    break;
+
+                case 10:
+                    break;
+
+                case 11:
+                    break;
+
+                case 12:
+                    break;
+                default:
+                    System.out.println("No es válido");
+                    break;
+            }
+            op = menu.menuPrincipal();
+        }
     }
 }

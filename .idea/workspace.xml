@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b357b40-1b29-4803-b200-3e6213e8c1a7" name="Changes" comment="especificando las tablas a través de las clases">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AutorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AutorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/LibroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LibroController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/TemaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/TemaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainLecturaliaJPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainLecturaliaJPA.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +56,13 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-20.0.2-corretto-20.0.2.1-4caba194b151-5bc9ecd2" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
