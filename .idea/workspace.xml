@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b357b40-1b29-4803-b200-3e6213e8c1a7" name="Changes" comment="especificando las tablas a través de las clases">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="8b357b40-1b29-4803-b200-3e6213e8c1a7" name="Changes" comment="modificando main">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AutorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AutorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/LibroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LibroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/TemaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/TemaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainLecturaliaJPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainLecturaliaJPA.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +22,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Bokurai"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="0c8d7f00-8f9d-44f9-987e-36c991c14a25" />
+        <option name="url" value="https://github.com/Bokurai/M06_JPAPractica_NereidaBarba.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
@@ -160,7 +170,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708009702317</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="modificando main">
+      <option name="closed" value="true" />
+      <created>1708075860562</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1708075860562</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -170,7 +188,8 @@
     <MESSAGE value="apartado ddbb" />
     <MESSAGE value="pasando archivos csv" />
     <MESSAGE value="especificando las tablas a través de las clases" />
-    <option name="LAST_COMMIT_MESSAGE" value="especificando las tablas a través de las clases" />
+    <MESSAGE value="modificando main" />
+    <option name="LAST_COMMIT_MESSAGE" value="modificando main" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
