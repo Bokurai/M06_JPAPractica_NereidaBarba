@@ -2,53 +2,53 @@ package Model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
-@Access(AccessType.FIELD)
 @Table(name = "libros")
-public class Libro implements Serializable {
-
+public class Libro {
     @Id
-    @Column(name = "id")
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_libro")
+    private Long idLibro;
 
     @ManyToOne
-    @JoinColumn(name = "tema")
-    Tema tema;
+    @JoinColumn(name = "id_tema")
+    private Tema tema;
 
     @Column(name = "titulo")
-    String titulo;
+    private String titulo;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "autor")
-    public Autor autor;
+    @ManyToMany
+    @JoinTable(name = "libros_autores",
+            joinColumns = @JoinColumn(name = "id_libro"),
+            inverseJoinColumns = @JoinColumn(name = "id_autor"))
+    private List<Autor> autores;
 
     @Column(name = "titulo_resumen")
-    String titulo_resumen;
+    private String tituloResumen;
 
     @Column(name = "resumen")
-    String resumen;
+    private String resumen;
 
-    public Libro(long id, Tema tema, String titulo, Autor autor, String titulo_resumen, String resumen) {
-        super();
-        this.id = id;
+    public Libro() {}
+
+    public Libro(Tema tema, String titulo, List<Autor> autores, String tituloResumen, String resumen) {
         this.tema = tema;
         this.titulo = titulo;
-        this.autor = autor;
-        this.titulo_resumen = titulo_resumen;
+        this.autores = autores;
+        this.tituloResumen = tituloResumen;
         this.resumen = resumen;
     }
 
-    public Libro(){
-        super();
+    public Long getIdLibro() {
+        return idLibro;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+    public void setIdLibro(Long idLibro) {
+        this.idLibro = idLibro;
     }
 
     public Tema getTema() {
@@ -67,20 +67,20 @@ public class Libro implements Serializable {
         this.titulo = titulo;
     }
 
-    public Autor getAutor() {
-        return autor;
+    public List<Autor> getAutores() {
+        return autores;
     }
 
-    public void setAutor(Autor autor) {
-        this.autor = autor;
+    public void setAutores(List<Autor> autores) {
+        this.autores = autores;
     }
 
-    public String getTitulo_resumen() {
-        return titulo_resumen;
+    public String getTituloResumen() {
+        return tituloResumen;
     }
 
-    public void setTitulo_resumen(String titulo_resumen) {
-        this.titulo_resumen = titulo_resumen;
+    public void setTituloResumen(String tituloResumen) {
+        this.tituloResumen = tituloResumen;
     }
 
     public String getResumen() {
@@ -94,12 +94,13 @@ public class Libro implements Serializable {
     @Override
     public String toString() {
         return "Libro{" +
-                "id=" + id +
-                ", tema='" + tema + '\'' +
+                "idLibro=" + idLibro +
+                ", tema=" + tema +
                 ", titulo='" + titulo + '\'' +
-                ", autor=" + autor +
-                ", titulo_resumen='" + titulo_resumen + '\'' +
+                ", autores=" + autores +
+                ", tituloResumen='" + tituloResumen + '\'' +
                 ", resumen='" + resumen + '\'' +
                 '}';
     }
 }
+

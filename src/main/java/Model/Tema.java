@@ -2,35 +2,44 @@ package Model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
-@Access(AccessType.FIELD)
 @Table(name = "temas")
-public class Tema implements Serializable {
-
+public class Tema {
     @Id
-    @Column(name = "nombre_tema")
-    String nombre_tema;
+    @Column(name = "id_tema")
+    private String idTema;
 
-    public Tema(String nombre_tema) {
-        this.nombre_tema = nombre_tema;
-    }
-    public Tema() {
+    @OneToMany(mappedBy = "tema")
+    private List<Libro> libros;
+
+    public Tema() {}
+
+    public Tema(String idTema) {
+        this.idTema = idTema;
     }
 
-    public String getNombre_tema() {
-        return nombre_tema;
+    public String getIdTema() {
+        return idTema;
     }
 
-    public void setNombre_tema(String nombre_tema) {
-        this.nombre_tema = nombre_tema;
+    public void setIdTema(String idTema) {
+        this.idTema = idTema;
+    }
+
+    public List<Libro> getLibros() {
+        return libros;
+    }
+
+    public void setLibros(List<Libro> libros) {
+        this.libros = libros;
     }
 
     @Override
     public String toString() {
         return "Tema{" +
-                "nombre_tema='" + nombre_tema + '\'' +
+                "idTema='" + idTema + '\'' +
                 '}';
     }
-
 }

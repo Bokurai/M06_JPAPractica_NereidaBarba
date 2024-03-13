@@ -2,25 +2,72 @@ package Model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
-@Access(AccessType.FIELD)
-@Table(name = "autor")
-public class Autor implements Serializable {
-
+@Table(name = "autores")
+public class Autor {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_autor")
+    private Long idAutor;
+
     @Column(name = "nombre")
-    String autor_nombre;
+    private String nombre;
 
-    @Column(name = "fecha_de_nacimiento")
-    String fecha_nacimiento;
+    @Column(name = "apellidos")
+    private String apellidos;
 
-    @Column(name = "genero")
-    String genero;
+    @ManyToMany(mappedBy = "autores")
+    private List<Libro> libros;
 
-    @Column(name = "ciudad_nacimiento")
-    String ciudad;
+    public Autor() {}
 
-    @Column(name = "pais")
-    String pais;
+    public Autor(String nombre, String apellidos) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+    }
+
+    public Long getIdAutor() {
+        return idAutor;
+    }
+
+    public void setIdAutor(Long idAutor) {
+        this.idAutor = idAutor;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public List<Libro> getLibros() {
+        return libros;
+    }
+
+    public void setLibros(List<Libro> libros) {
+        this.libros = libros;
+    }
+
+    @Override
+    public String toString() {
+        return "Autor{" +
+                "idAutor=" + idAutor +
+                ", nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                '}';
+    }
 }
