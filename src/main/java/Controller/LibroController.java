@@ -1,7 +1,6 @@
 package Controller;
 
 import Model.Libro;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import java.util.List;
@@ -13,7 +12,7 @@ public class LibroController {
         this.entityManagerFactory = entityManagerFactory;
     }
 
-    /* Method to CREATE a Student in the database */
+
     public void addStudent(Libro libro) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
@@ -22,7 +21,6 @@ public class LibroController {
         em.close();
     }
 
-    /* Method to READ all Students */
     public void listStudents() {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
@@ -39,21 +37,19 @@ public class LibroController {
         em.close();
     }
 
-    /* Method to UPDATE activity for a Student */
-    public void updateStudent(Integer studentId) {
+    public void updateStudent(Integer libro_id) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
-        Libro libro = (Libro) em.find(Libro.class, studentId);
+        Libro libro = (Libro) em.find(Libro.class, libro_id);
         em.merge(libro);
         em.getTransaction().commit();
         em.close();
     }
 
-    /* Method to DELETE a Student from the records */
-    public void deleteStudent(Integer studentId) {
+    public void deleteStudent(Integer libro_id) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
-         Libro libro = (Libro) em.find(Libro.class, studentId);
+         Libro libro = (Libro) em.find(Libro.class, libro_id);
         em.remove(libro);
         em.getTransaction().commit();
         em.close();
