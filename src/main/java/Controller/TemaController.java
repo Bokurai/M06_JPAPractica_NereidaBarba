@@ -25,33 +25,33 @@ public class TemaController {
     public void listTemas() {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
-        List<Libro> result = em.createQuery("from Student", Libro.class)
+        List<Tema> result = em.createQuery("from temas", Tema.class)
                 .getResultList();
         System.out.println(result.size());
 
-        for (Libro libro : result) {
-            System.out.println(libro.toString());
+        for (Tema tema : result) {
+            System.out.println(tema.toString());
         }
 
-        System.out.println("STUDENTS");
+        System.out.println("TODOS LOS TEMAS");
         em.getTransaction().commit();
         em.close();
     }
 
-    public void updateStudent(Integer libro_id) {
+    public void updateTema(Integer tema_id) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
-        Libro libro = (Libro) em.find(Libro.class, libro_id);
-        em.merge(libro);
+        Tema tema = (Tema) em.find(Tema.class, tema_id);
+        em.merge(tema);
         em.getTransaction().commit();
         em.close();
     }
 
-    public void deleteStudent(Integer libro_id) {
+    public void deleteStudent(Integer tema_id) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
-        Libro libro = (Libro) em.find(Libro.class, libro_id);
-        em.remove(libro);
+        Tema tema = (Tema) em.find(Tema.class, tema_id);
+        em.remove(tema);
         em.getTransaction().commit();
         em.close();
     }
