@@ -53,4 +53,16 @@ public class AutorController {
         em.getTransaction().commit();
         em.close();
     }
+
+    public void mostrarLibrosDeUnAutor(Long idAutor) {
+        EntityManager em = entityManagerFactory.createEntityManager();
+       em.getTransaction().begin();
+        List<Libro> libros = em.createNativeQuery("SELECT * FROM libros JOIN libros_autores ON libros.id_libro = libros_autores.id_libro JOIN autores ON libros_autores.id_autor = autores.id_autor WHERE autores.id_autor = :idAutor", Libro.class)
+                .setParameter("idAutor", idAutor)
+                .getResultList();
+        for (Libro libro : libros) {
+            System.out.println(libro);
+        }
+        em.getTransaction().commit();
+    }
 }

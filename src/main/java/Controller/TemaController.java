@@ -14,15 +14,15 @@ public class TemaController {
         this.entityManagerFactory = entityManagerFactory;
     }
 
-    public void addStudent(Tema libro) {
+    public void addTema(Tema tema) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
-        em.persist(libro);
+        em.persist(tema);
         em.getTransaction().commit();
         em.close();
     }
 
-    public void listStudents() {
+    public void listTemas() {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
         List<Libro> result = em.createQuery("from Student", Libro.class)
