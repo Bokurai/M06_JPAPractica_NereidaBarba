@@ -1,0 +1,350 @@
+Index: src/main/java/Model/Libro.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Model;\n\nimport javax.persistence.*;\nimport java.io.Serializable;\n\n@Entity\n@Access(AccessType.FIELD)\n@Table(name = \"libros\")\npublic class Libro implements Serializable {\n\n    @Id\n    @Column(name = \"id\")\n    private long id;\n\n    @ManyToOne\n    @JoinColumn(name = \"tema\")\n    Tema tema;\n\n    @Column(name = \"titulo\")\n    String titulo;\n\n    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)\n    @JoinColumn(name = \"autor\")\n    public Autor autor;\n\n    @Column(name = \"titulo_resumen\")\n    String titulo_resumen;\n\n    @Column(name = \"resumen\")\n    String resumen;\n\n    public Libro(long id, Tema tema, String titulo, Autor autor, String titulo_resumen, String resumen) {\n        super();\n        this.id = id;\n        this.tema = tema;\n        this.titulo = titulo;\n        this.autor = autor;\n        this.titulo_resumen = titulo_resumen;\n        this.resumen = resumen;\n    }\n\n    public Libro(){\n        super();\n    }\n\n    public long getId() {\n        return id;\n    }\n\n    public void setId(long id) {\n        this.id = id;\n    }\n\n    public Tema getTema() {\n        return tema;\n    }\n\n    public void setTema(Tema tema) {\n        this.tema = tema;\n    }\n\n    public String getTitulo() {\n        return titulo;\n    }\n\n    public void setTitulo(String titulo) {\n        this.titulo = titulo;\n    }\n\n    public Autor getAutor() {\n        return autor;\n    }\n\n    public void setAutor(Autor autor) {\n        this.autor = autor;\n    }\n\n    public String getTitulo_resumen() {\n        return titulo_resumen;\n    }\n\n    public void setTitulo_resumen(String titulo_resumen) {\n        this.titulo_resumen = titulo_resumen;\n    }\n\n    public String getResumen() {\n        return resumen;\n    }\n\n    public void setResumen(String resumen) {\n        this.resumen = resumen;\n    }\n\n    @Override\n    public String toString() {\n        return \"Libro{\" +\n                \"id=\" + id +\n                \", tema='\" + tema + '\\'' +\n                \", titulo='\" + titulo + '\\'' +\n                \", autor=\" + autor +\n                \", titulo_resumen='\" + titulo_resumen + '\\'' +\n                \", resumen='\" + resumen + '\\'' +\n                '}';\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Model/Libro.java b/src/main/java/Model/Libro.java
+--- a/src/main/java/Model/Libro.java	(revision 3b090ef6146d97f6eb79ca608b284e9920ec4b17)
++++ b/src/main/java/Model/Libro.java	(date 1709740707683)
+@@ -2,26 +2,28 @@
+ 
+ import javax.persistence.*;
+ import java.io.Serializable;
++import java.util.HashSet;
++import java.util.Set;
+ 
+ @Entity
+ @Access(AccessType.FIELD)
+ @Table(name = "libros")
+ public class Libro implements Serializable {
+ 
++
+     @Id
+     @Column(name = "id")
+-    private long id;
++    private long id_libro;
+ 
+     @ManyToOne
+     @JoinColumn(name = "tema")
+-    Tema tema;
++    private Tema tema;
+ 
+     @Column(name = "titulo")
+     String titulo;
+ 
+-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+-    @JoinColumn(name = "autor")
+-    public Autor autor;
++    @ManyToMany(mappedBy = "libros")
++    private Set<Autor> autores = new HashSet<>();
+ 
+     @Column(name = "titulo_resumen")
+     String titulo_resumen;
+@@ -29,12 +31,11 @@
+     @Column(name = "resumen")
+     String resumen;
+ 
+-    public Libro(long id, Tema tema, String titulo, Autor autor, String titulo_resumen, String resumen) {
+-        super();
+-        this.id = id;
++    public Libro(long id, Tema tema, String titulo, Set<Autor> autores, String titulo_resumen, String resumen) {
++        this.id_libro = id;
+         this.tema = tema;
+         this.titulo = titulo;
+-        this.autor = autor;
++        this.autores = autores;
+         this.titulo_resumen = titulo_resumen;
+         this.resumen = resumen;
+     }
+@@ -43,12 +44,12 @@
+         super();
+     }
+ 
+-    public long getId() {
+-        return id;
++    public long getId_libro() {
++        return id_libro;
+     }
+ 
+-    public void setId(long id) {
+-        this.id = id;
++    public void setId_libro(long id_libro) {
++        this.id_libro = id_libro;
+     }
+ 
+     public Tema getTema() {
+@@ -67,14 +68,6 @@
+         this.titulo = titulo;
+     }
+ 
+-    public Autor getAutor() {
+-        return autor;
+-    }
+-
+-    public void setAutor(Autor autor) {
+-        this.autor = autor;
+-    }
+-
+     public String getTitulo_resumen() {
+         return titulo_resumen;
+     }
+@@ -90,16 +83,25 @@
+     public void setResumen(String resumen) {
+         this.resumen = resumen;
+     }
++    public Set<Autor> getAutores() {
++        return autores;
++    }
++
++    public void setAutores(Set<Autor> autores) {
++        this.autores = autores;
++    }
+ 
+     @Override
+     public String toString() {
+         return "Libro{" +
+-                "id=" + id +
+-                ", tema='" + tema + '\'' +
++                "id_libro=" + id_libro +
++                ", tema=" + tema +
+                 ", titulo='" + titulo + '\'' +
+-                ", autor=" + autor +
++                ", autores=" + autores +
+                 ", titulo_resumen='" + titulo_resumen + '\'' +
+                 ", resumen='" + resumen + '\'' +
+                 '}';
+     }
++
++
+ }
+Index: src/main/java/Model/Autor.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Model;\n\nimport javax.persistence.*;\nimport java.io.Serializable;\n\n@Entity\n@Access(AccessType.FIELD)\n@Table(name = \"autor\")\npublic class Autor implements Serializable {\n\n    @Id\n    @Column(name = \"nombre\")\n    String autor_nombre;\n\n    @Column(name = \"fecha_de_nacimiento\")\n    String fecha_nacimiento;\n\n    @Column(name = \"genero\")\n    String genero;\n\n    @Column(name = \"ciudad_nacimiento\")\n    String ciudad;\n\n    @Column(name = \"pais\")\n    String pais;\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Model/Autor.java b/src/main/java/Model/Autor.java
+--- a/src/main/java/Model/Autor.java	(revision 3b090ef6146d97f6eb79ca608b284e9920ec4b17)
++++ b/src/main/java/Model/Autor.java	(date 1709740733608)
+@@ -2,25 +2,123 @@
+ 
+ import javax.persistence.*;
+ import java.io.Serializable;
++import java.util.HashSet;
++import java.util.Set;
+ 
+ @Entity
+ @Access(AccessType.FIELD)
+ @Table(name = "autor")
+ public class Autor implements Serializable {
+ 
++
+     @Id
+-    @Column(name = "nombre")
+-    String autor_nombre;
++    @Column(name = "id_autor")
++   private long id_autor;
++
++    @Column(name = "autor_nombre")
++    private String autor_nombre;
+ 
+     @Column(name = "fecha_de_nacimiento")
+-    String fecha_nacimiento;
++    private String fecha_nacimiento;
+ 
+     @Column(name = "genero")
+-    String genero;
++    private String genero;
+ 
+     @Column(name = "ciudad_nacimiento")
+-    String ciudad;
++    private String ciudad;
+ 
+     @Column(name = "pais")
+-    String pais;
++    private String pais;
++
++    @ManyToMany
++    @JoinTable(
++            name = "autores_libros",
++            joinColumns = @JoinColumn(name = "autor_nombre"),
++            inverseJoinColumns = @JoinColumn(name = "libro_nombre")
++    )
++    private Set<Libro> libros = new HashSet<>();
++
++    public Autor() {
++        super();
++    }
++
++    public Autor(long id_autor, String autor_nombre, String fecha_nacimiento, String genero, String ciudad, String pais, Set<Libro> libros) {
++        this.id_autor = id_autor;
++        this.autor_nombre = autor_nombre;
++        this.fecha_nacimiento = fecha_nacimiento;
++        this.genero = genero;
++        this.ciudad = ciudad;
++        this.pais = pais;
++        this.libros = libros;
++    }
++
++    public String getAutor_nombre() {
++        return autor_nombre;
++    }
++
++    public void setAutor_nombre(String autor_nombre) {
++        this.autor_nombre = autor_nombre;
++    }
++
++    public long getId_autor() {
++        return id_autor;
++    }
++
++    public void setId_autor(long id_autor) {
++        this.id_autor = id_autor;
++    }
++
++
++    public String getFecha_nacimiento() {
++        return fecha_nacimiento;
++    }
++
++    public void setFecha_nacimiento(String fecha_nacimiento) {
++        this.fecha_nacimiento = fecha_nacimiento;
++    }
++
++    public String getGenero() {
++        return genero;
++    }
++
++    public void setGenero(String genero) {
++        this.genero = genero;
++    }
++
++    public String getCiudad() {
++        return ciudad;
++    }
++
++    public void setCiudad(String ciudad) {
++        this.ciudad = ciudad;
++    }
++
++    public String getPais() {
++        return pais;
++    }
++
++    public void setPais(String pais) {
++        this.pais = pais;
++    }
++
++    public Set<Libro> getLibros() {
++        return libros;
++    }
++
++    public void setLibros(Set<Libro> libros) {
++        this.libros = libros;
++    }
++
++    @Override
++    public String toString() {
++        return "Autor{" +
++                "id_autor=" + id_autor +
++                ", autor_nombre='" + autor_nombre + '\'' +
++                ", fecha_nacimiento='" + fecha_nacimiento + '\'' +
++                ", genero='" + genero + '\'' +
++                ", ciudad='" + ciudad + '\'' +
++                ", pais='" + pais + '\'' +
++                ", libros=" + libros +
++                '}';
++    }
+ }
+Index: .idea/jpa-buddy.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"JpaBuddyIdeaProjectConfig\">\n    <option name=\"renamerInitialized\" value=\"true\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/jpa-buddy.xml b/.idea/jpa-buddy.xml
+--- a/.idea/jpa-buddy.xml	(revision 3b090ef6146d97f6eb79ca608b284e9920ec4b17)
++++ b/.idea/jpa-buddy.xml	(date 1709738440765)
+@@ -1,6 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="JpaBuddyIdeaProjectConfig">
++  <component name="JpaBuddyIdeaProjectConfig" ddlActionDbType="postgres">
++    <option name="defaultUnitInitialized" value="true" />
+     <option name="renamerInitialized" value="true" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"8b357b40-1b29-4803-b200-3e6213e8c1a7\" name=\"Changes\" comment=\"especificando las tablas a través de las clases\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/MainLecturaliaJPA.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/MainLecturaliaJPA.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"JpbToolWindowState\">\n    <option name=\"isToolWindowVisible\" value=\"false\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;customColor&quot;: &quot;&quot;,\n  &quot;associatedIndex&quot;: 8\n}</component>\n  <component name=\"ProjectId\" id=\"2c5bDBVcVbmEKO4Vrx29XMwdcgP\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/home/dam2a/IdeaProjects/M06_JPAPractica_NereidaBarba&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;\n  }\n}</component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"8b357b40-1b29-4803-b200-3e6213e8c1a7\" name=\"Changes\" comment=\"\" />\n      <created>1707404266892</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1707404266892</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"declarar packages y primeras clases\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1707404630236</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1707404630236</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"declarar packages y primeras clases\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1707404695617</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1707404695617</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"declarar packages y primeras clases\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1707404720500</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1707404720501</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"menu y generar javadoc para tenerlo a mano\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1707923562596</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1707923562596</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"apartado ddbb\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1707925038050</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1707925038050</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"pasando archivos csv\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1707925116135</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1707925116135</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"especificando las tablas a través de las clases\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1707926549139</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1707926549139</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"especificando las tablas a través de las clases\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1707928279339</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1707928279339</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"especificando las tablas a través de las clases\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1707928689641</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1707928689641</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"especificando las tablas a través de las clases\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1708007229821</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1708007229821</updated>\n    </task>\n    <task id=\"LOCAL-00011\" summary=\"especificando las tablas a través de las clases\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1708009702317</created>\n      <option name=\"number\" value=\"00011\" />\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1708009702317</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"12\" />\n    <servers />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\n    <MESSAGE value=\"declarar packages y primeras clases\" />\n    <MESSAGE value=\"menu y generar javadoc para tenerlo a mano\" />\n    <MESSAGE value=\"apartado ddbb\" />\n    <MESSAGE value=\"pasando archivos csv\" />\n    <MESSAGE value=\"especificando las tablas a través de las clases\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"especificando las tablas a través de las clases\" />\n  </component>\n  <component name=\"XDebuggerManager\">\n    <breakpoint-manager>\n      <breakpoints>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/Model/AutorLibro.java</url>\n          <line>8</line>\n          <option name=\"timeStamp\" value=\"1\" />\n        </line-breakpoint>\n      </breakpoints>\n    </breakpoint-manager>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 3b090ef6146d97f6eb79ca608b284e9920ec4b17)
++++ b/.idea/workspace.xml	(date 1709740734112)
+@@ -5,8 +5,10 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="8b357b40-1b29-4803-b200-3e6213e8c1a7" name="Changes" comment="especificando las tablas a través de las clases">
++      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/MainLecturaliaJPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainLecturaliaJPA.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Autor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Autor.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Libro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Libro.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -41,17 +43,19 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;/home/dam2a/IdeaProjects/M06_JPAPractica_NereidaBarba&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "ASKED_ADD_EXTERNAL_FILES": "true",
++    "JavaMethodFindUsagesOptions.isIncludeOverloadUsages": "true",
++    "JavaMethodFindUsagesOptions.isSearchForTextOccurrences": "true",
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "kotlin-language-version-configured": "true",
++    "last_opened_file_path": "/home/dam2a/IdeaProjects/M06_JPAPractica_NereidaBarba",
++    "settings.editor.selected.configurable": "com.haulmont.jpb.viewMode"
+   }
+-}</component>
++}]]></component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -149,7 +153,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1708009702317</updated>
+     </task>
+-    <option name="localTasksCounter" value="12" />
++    <task id="LOCAL-00012" summary="especificando las tablas a través de las clases">
++      <option name="closed" value="true" />
++      <created>1708012172589</created>
++      <option name="number" value="00012" />
++      <option name="presentableId" value="LOCAL-00012" />
++      <option name="project" value="LOCAL" />
++      <updated>1708012172589</updated>
++    </task>
++    <option name="localTasksCounter" value="13" />
+     <servers />
+   </component>
+   <component name="VcsManagerConfiguration">
