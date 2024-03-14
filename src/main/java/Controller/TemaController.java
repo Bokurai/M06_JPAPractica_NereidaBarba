@@ -1,6 +1,5 @@
 package Controller;
 
-import Model.Libro;
 import Model.Tema;
 
 import javax.persistence.EntityManager;
@@ -38,7 +37,7 @@ public class TemaController {
         em.close();
     }
 
-    public void updateTema(Integer tema_id) {
+    public void updateTema(String tema_id) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
         Tema tema = (Tema) em.find(Tema.class, tema_id);
@@ -47,7 +46,7 @@ public class TemaController {
         em.close();
     }
 
-    public void deleteStudent(Integer tema_id) {
+    public void deleteStudent(String tema_id) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
         Tema tema = (Tema) em.find(Tema.class, tema_id);

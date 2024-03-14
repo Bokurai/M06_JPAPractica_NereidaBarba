@@ -24,7 +24,7 @@ public class LibroController {
     public void listStudents() {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
-        List<Libro> result = em.createQuery("from Student", Libro.class)
+        List<Libro> result = em.createQuery("from libros", Libro.class)
                 .getResultList();
         System.out.println(result.size());
 
