@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b357b40-1b29-4803-b200-3e6213e8c1a7" name="Changes" comment="modificando main">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/LibroAutorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/PostgresController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/LibroAutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_3_24_16_09__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_3_24_16_09__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/TemaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/TemaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/AutorLibro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tema.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AutorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AutorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Libro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Libro.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +193,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710342806967</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="modificando main">
+      <option name="closed" value="true" />
+      <created>1710419931612</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1710419931612</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

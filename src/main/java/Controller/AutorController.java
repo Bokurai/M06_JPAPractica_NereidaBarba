@@ -10,6 +10,8 @@ import java.util.List;
 public class AutorController {
     private EntityManagerFactory entityManagerFactory;
 
+    public AutorController(){
+    }
     public AutorController(EntityManagerFactory entityManagerFactory) {
         this.entityManagerFactory = entityManagerFactory;
     }
