@@ -18,8 +18,8 @@ public class Libro {
     @Column(name = "titulo")
     private String titulo;
 
-    @ManyToMany
-    @JoinTable(name = "libros_autores",
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "libro_autor",
             joinColumns = @JoinColumn(name = "id_libro"),
             inverseJoinColumns = @JoinColumn(name = "id_autor"))
     private List<Autor> autor;

@@ -17,6 +17,42 @@ public class LibroAutor {
     @JoinColumn(name = "id_libro")
     private Libro libro;
 
-  public LibroAutor(){}
+    public LibroAutor(){}
 
+    public LibroAutor(Autor autor, Libro libro) {
+        this.autor = autor;
+        this.libro = libro;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Autor getAutor() {
+        return autor;
+    }
+
+    public void setAutor(Autor autor) {
+        this.autor = autor;
+    }
+
+    public Libro getLibro() {
+        return libro;
+    }
+
+    public void setLibro(Libro libro) {
+        this.libro = libro;
+    }
+
+    @Override
+    public String toString() {
+        return "LibroAutor{" +
+                "autor=" + autor +
+                ", libro=" + libro +
+                '}';
+    }
 }

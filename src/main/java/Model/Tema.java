@@ -15,8 +15,9 @@ public class Tema {
 
     public Tema() {}
 
-    public Tema(String idTema) {
+    public Tema(String idTema, List<Libro> libros) {
         this.idTema = idTema;
+        this.libros = libros;
     }
 
     public String getIdTema() {
@@ -39,6 +40,7 @@ public class Tema {
     public String toString() {
         return "Tema{" +
                 "idTema='" + idTema + '\'' +
+                ", libros=" + libros +
                 '}';
     }
 }

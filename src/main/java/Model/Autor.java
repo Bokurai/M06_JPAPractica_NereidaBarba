@@ -12,7 +12,7 @@ public class Autor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_autor")
-    private Long idAutor;
+    private Long id_autor;
 
     @Column(name = "nombre")
     private String nombre;
@@ -20,7 +20,10 @@ public class Autor {
     @Column(name = "apellidos")
     private String apellidos;
 
-    @ManyToMany(mappedBy = "autores")
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "libro_autor",
+            joinColumns = @JoinColumn(name = "id_autor"),
+            inverseJoinColumns = @JoinColumn(name = "id_libro"))
     private List<Libro> libros;
 
     public Autor() {}
@@ -31,11 +34,11 @@ public class Autor {
     }
 
     public Long getIdAutor() {
-        return idAutor;
+        return id_autor;
     }
 
     public void setIdAutor(Long idAutor) {
-        this.idAutor = idAutor;
+        this.id_autor = idAutor;
     }
 
     public String getNombre() {
@@ -65,7 +68,7 @@ public class Autor {
     @Override
     public String toString() {
         return "Autor{" +
-                "idAutor=" + idAutor +
+                "idAutor=" + id_autor +
                 ", nombre='" + nombre + '\'' +
                 ", apellidos='" + apellidos + '\'' +
                 '}';
