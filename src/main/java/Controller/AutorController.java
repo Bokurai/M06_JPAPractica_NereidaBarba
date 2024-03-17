@@ -26,7 +26,7 @@ public class AutorController {
     public void listAutors() {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
-        List<Autor> result = em.createQuery("from Student", Autor.class)
+        List<Autor> result = em.createQuery("from autor", Autor.class)
                 .getResultList();
         System.out.println(result.size());
 

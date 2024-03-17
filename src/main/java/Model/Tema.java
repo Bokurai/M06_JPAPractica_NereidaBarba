@@ -4,13 +4,13 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "temas")
+@Table(name = "tema")
 public class Tema {
     @Id
     @Column(name = "id_tema")
     private String idTema;
 
-    @OneToMany(mappedBy = "tema")
+    @OneToMany(mappedBy = "id_tema")
     private List<Libro> libros;
 
     public Tema() {}
