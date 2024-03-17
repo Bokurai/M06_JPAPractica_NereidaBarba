@@ -24,7 +24,7 @@ public class TemaController {
     public void listTemas() {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
-        List<Tema> result = em.createQuery("from temas", Tema.class)
+        List<Tema> result = em.createQuery("from tema", Tema.class)
                 .getResultList();
         System.out.println(result.size());
 
@@ -46,7 +46,7 @@ public class TemaController {
         em.close();
     }
 
-    public void deleteStudent(String tema_id) {
+    public void deleteTema(String tema_id) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
         Tema tema = (Tema) em.find(Tema.class, tema_id);

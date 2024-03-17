@@ -20,10 +20,7 @@ public class Autor {
     @Column(name = "apellidos")
     private String apellidos;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "libro_autor",
-            joinColumns = @JoinColumn(name = "id_autor"),
-            inverseJoinColumns = @JoinColumn(name = "id_libro"))
+    @ManyToMany(mappedBy = "autor", cascade = CascadeType.ALL)
     private List<Libro> libros;
 
     public Autor() {}
