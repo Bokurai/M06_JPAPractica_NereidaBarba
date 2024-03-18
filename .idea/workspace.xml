@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b357b40-1b29-4803-b200-3e6213e8c1a7" name="Changes" comment="modelos acabados">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_3_24_16_09__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_3_24_16_09__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/LibroAutorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LibroAutorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/TemaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/TemaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/LibroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LibroController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/PostgresController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/PostgresController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Autor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Autor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Libro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Libro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/LibroAutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/LibroAutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tema.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

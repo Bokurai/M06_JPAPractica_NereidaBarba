@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Access(AccessType.FIELD)
 @Table(name = "tema")
 public class Tema {
     @Id

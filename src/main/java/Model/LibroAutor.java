@@ -3,6 +3,7 @@ package Model;
 import javax.persistence.*;
 
 @Entity
+@Access(AccessType.FIELD)
 @Table(name="libro_autor")
 public class LibroAutor {
     @Id
