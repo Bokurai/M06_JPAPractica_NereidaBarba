@@ -10,7 +10,7 @@ public class Tema {
     @Column(name = "id_tema")
     private String idTema;
 
-    @OneToMany(mappedBy = "id_tema")
+    @OneToMany(mappedBy = "tema")
     private List<Libro> libros;
 
     public Tema() {}
