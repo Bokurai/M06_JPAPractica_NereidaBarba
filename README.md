@@ -17,5 +17,4 @@ Como enlace entre la IDE y PostgreSQL se ha utilizado tanto JPA como Hibernate.
 ## Documentación
 La documentación de este proyecto está disponible [en este enlace](https://bokurai.github.io/M06_JPAPractica_NereidaBarba/)
 
-Tabla de la BBDD
-![](/src/main/resources/tablarelacional.png)
+![Tabla de la BBDD](/src/main/resources/tablarelacional.png)
