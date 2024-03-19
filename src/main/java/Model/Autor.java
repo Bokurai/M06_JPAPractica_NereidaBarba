@@ -9,7 +9,7 @@ public class Autor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_autor")
-    private Long id_autor;
+    private int id_autor;
 
     @Column(name = "nombre")
     private String nombre;
@@ -19,15 +19,16 @@ public class Autor {
 
     public Autor() {}
 
+
     public Autor(String nombre) {
         this.nombre = nombre;
     }
 
-    public Long getIdAutor() {
+    public int getIdAutor() {
         return id_autor;
     }
 
-    public void setIdAutor(Long id_autor) {
+    public void setIdAutor(int id_autor) {
         this.id_autor = id_autor;
     }
 

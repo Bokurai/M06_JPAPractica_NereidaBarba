@@ -16,7 +16,6 @@ public class LibroController {
     public void addLibro(Libro libro) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
-        System.out.println("Inserte el título del libro");
         em.persist(libro);
         em.getTransaction().commit();
         em.close();

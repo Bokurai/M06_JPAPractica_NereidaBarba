@@ -7,6 +7,7 @@ import Model.LibroAutor;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -21,7 +22,7 @@ public class LibroAutorController {
         this.entityManagerFactory = entityManagerFactory;
     }
 
-    public List<Libro> librosPorAutor(Long id_autor) {
+    public List<Libro> librosPorAutor(int id_autor) {
         EntityManager em = entityManagerFactory.createEntityManager();
         List<Libro> libros = new ArrayList<>();
         try {
@@ -39,7 +40,7 @@ public class LibroAutorController {
         return libros;
     }
 
-    public List<Autor> autoresPorLibro(Long id_libro) {
+    public List<Autor> autoresPorLibro(int id_libro) {
         EntityManager em = entityManagerFactory.createEntityManager();
         List<Autor> autores = new ArrayList<>();
         try {

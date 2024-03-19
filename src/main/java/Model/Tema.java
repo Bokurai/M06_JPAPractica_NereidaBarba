@@ -15,9 +15,8 @@ public class Tema {
 
     public Tema() {}
 
-    public Tema(String idTema, List<Libro> libros) {
+    public Tema(String idTema) {
         this.idTema = idTema;
-        this.libros = libros;
     }
 
     public String getIdTema() {

@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -24,7 +25,7 @@ public class PostgresController {
         this.entityManagerFactory = entityManagerFactory;
     }
 
-    private void crearTablaAutor() {
+    public void crearTablaAutor() {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
         em.createNativeQuery("CREATE TABLE IF NOT EXISTS autor ("
@@ -36,7 +37,7 @@ public class PostgresController {
         em.close();
     }
 
-    private void crearTablaLibro() {
+    public void crearTablaLibro() {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
         em.createNativeQuery("CREATE TABLE IF NOT EXISTS libro ("
@@ -51,7 +52,7 @@ public class PostgresController {
         em.close();
     }
 
-    private void crearTablaTema() {
+    public void crearTablaTema() {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
         em.createNativeQuery("CREATE TABLE IF NOT EXISTS tema ("
@@ -61,7 +62,7 @@ public class PostgresController {
         em.close();
     }
 
-    private void crearTablaLibroAutor() {
+    public void crearTablaLibroAutor() {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
         em.createNativeQuery("CREATE TABLE IF NOT EXISTS libro_autor ("
@@ -94,24 +95,23 @@ public class PostgresController {
                 String tituloResumen = nextLine[3];
                 String resumen = nextLine[4];
 
-                // Buscar o crear el tema
                 Tema tema = em.find(Tema.class, idTema);
                 if (tema == null) {
                     tema = new Tema(idTema);
                     em.persist(tema);
                 }
 
-                // Crear el libro
-                Libro libro = new Libro(tema, titulo, tituloResumen, resumen);
-                em.persist(libro);
-
-                // Asignar autores al libro
+                List<Autor> autorList = new ArrayList<>();
                 for (String nombreAutor : autores) {
                     Autor autor = em.createQuery("SELECT a FROM Autor a WHERE a.nombre = :nombre", Autor.class)
                             .setParameter("nombre", nombreAutor.trim())
                             .getSingleResult();
-                    libro.getAutores().add(autor);
+                    autorList.add(autor);
                 }
+
+                Libro libro = new Libro(tema, titulo, autorList, tituloResumen, resumen);
+                em.persist(libro);
+                tema.getLibros().add(libro);
             }
 
             csvReader.close();
@@ -128,6 +128,8 @@ public class PostgresController {
             }
         }
     }
+
+
 
 
     public void poblarTablaAutores() throws IOException, CsvValidationException {
@@ -193,7 +195,7 @@ public class PostgresController {
         }
     }
 
-    private void poblarLibroAutor() {
+    public void poblarLibroAutor() {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
 
@@ -222,7 +224,7 @@ public class PostgresController {
     }
 
 
-    private void borrarTablaAutor() {
+    public void borrarTablaAutor() {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
         em.createNativeQuery("DROP TABLE IF EXISTS autor").executeUpdate();
@@ -230,7 +232,7 @@ public class PostgresController {
         em.close();
     }
 
-    private void borrarTablaLibro() {
+    public void borrarTablaLibro() {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
         em.createNativeQuery("DROP TABLE IF EXISTS libro").executeUpdate();
@@ -238,7 +240,7 @@ public class PostgresController {
         em.close();
     }
 
-    private void borrarTablaTema() {
+    public void borrarTablaTema() {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
         em.createNativeQuery("DROP TABLE IF EXISTS tema").executeUpdate();
@@ -246,7 +248,7 @@ public class PostgresController {
         em.close();
     }
 
-    private void borrarTablaLibroAutor() {
+    public void borrarTablaLibroAutor() {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
         em.createNativeQuery("DROP TABLE IF EXISTS libro_autor").executeUpdate();

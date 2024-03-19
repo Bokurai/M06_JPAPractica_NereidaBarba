@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class LibroAutor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @ManyToOne
     @JoinColumn(name = "id_autor")
@@ -24,11 +24,11 @@ public class LibroAutor {
         this.libro = libro;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
