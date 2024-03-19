@@ -7,14 +7,31 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import java.util.List;
 
+/**
+ * Clase Controller para Autor
+ */
 public class AutorController {
     private EntityManagerFactory entityManagerFactory;
 
+    /**
+     * Constructor vacío para Hibernate
+     */
     public AutorController(){
     }
+
+    /**
+     *
+     * Constructor con EntityManager
+     * @param entityManagerFactory
+     */
     public AutorController(EntityManagerFactory entityManagerFactory) {
         this.entityManagerFactory = entityManagerFactory;
     }
+
+    /**
+     * Añadir autor
+     * @param autor
+     */
     public void addAutor(Autor autor) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
@@ -23,6 +40,9 @@ public class AutorController {
         em.close();
     }
 
+    /**
+     * Listar autores
+     */
     public void listAutors() {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
@@ -39,6 +59,10 @@ public class AutorController {
         em.close();
     }
 
+    /**
+     * Actualizar datos de autor
+     * @param autor_id
+     */
     public void updateAutor(Integer autor_id) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
@@ -48,6 +72,10 @@ public class AutorController {
         em.close();
     }
 
+    /**
+     * Eliminar autor
+     * @param autor_id
+     */
     public void deleteAutor(Integer autor_id) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();

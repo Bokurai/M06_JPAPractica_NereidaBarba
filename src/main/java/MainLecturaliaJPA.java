@@ -18,10 +18,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Clase principal que gestiona la aplicación LecturaliaJPA.
+ */
 public class MainLecturaliaJPA {
 
     static SessionFactory sessionFactoryObj;
 
+    /**
+     * Método para SessionFactory.
+     */
     private static SessionFactory buildSessionFactory() {
         try {
             StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder()
@@ -34,6 +40,10 @@ public class MainLecturaliaJPA {
         }
     }
 
+
+    /**
+     * Método para crear EntityManager.
+     */
     public static EntityManagerFactory createEntityManagerFactory() {
         EntityManagerFactory emf;
         try {
@@ -45,6 +55,13 @@ public class MainLecturaliaJPA {
         return emf;
     }
 
+    /**
+     * Método principal de la aplicación.
+     *
+     * @param args argumentos de la línea de comandos (no utilizados).
+     * @throws CsvValidationException si ocurre un error al validar un archivo CSV.
+     * @throws IOException            si ocurre un error de E/S durante la lectura de un archivo.
+     */
     public static void main(String[] args) throws CsvValidationException, IOException {
         EntityManagerFactory entityManagerFactory = createEntityManagerFactory();
         LibroController libroController = new LibroController(entityManagerFactory);
@@ -76,11 +93,17 @@ public class MainLecturaliaJPA {
                     break;
 
                 case 5:
+                    System.out.println("Aquí todos los autores con su id y nombre para localizar");
+                    autorController.listAutors();
+                    System.out.println("Introduzca la id del autor:");
                     int libroporautorid = scanner.nextInt();
                     libroAutorController.librosPorAutor(libroporautorid);
                     break;
 
                 case 6:
+                    System.out.println("Aquí todos los libros con el titulo y la id para localizar:");
+                    libroController.listLibros();
+                    System.out.println("Introduzca la id del libro:");
                     int autorporlibrois = scanner.nextInt();
                     libroAutorController.autoresPorLibro(autorporlibrois);
                     break;

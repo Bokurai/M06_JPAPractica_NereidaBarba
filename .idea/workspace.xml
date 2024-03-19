@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b357b40-1b29-4803-b200-3e6213e8c1a7" name="Changes" comment="modelos acabados">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/autores.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/LibroAutorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LibroAutorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/LibroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LibroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/PostgresController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/PostgresController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AutorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AutorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainLecturaliaJPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainLecturaliaJPA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Autor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Autor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/LibroAutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/LibroAutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tema.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/temas_y_libros.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/temas_y_libros.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/MenuLecturaliaJPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MenuLecturaliaJPA.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +247,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710812551885</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="modelos acabados">
+      <option name="closed" value="true" />
+      <created>1710852491893</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1710852491893</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
