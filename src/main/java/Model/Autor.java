@@ -27,8 +27,8 @@ public class Autor {
         return id_autor;
     }
 
-    public void setIdAutor(Long idAutor) {
-        this.id_autor = idAutor;
+    public void setIdAutor(Long id_autor) {
+        this.id_autor = id_autor;
     }
 
     public String getNombre() {

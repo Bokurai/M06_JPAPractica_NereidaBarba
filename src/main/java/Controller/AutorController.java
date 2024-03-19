@@ -39,33 +39,22 @@ public class AutorController {
         em.close();
     }
 
-    public void updateAutor(Integer libro_id) {
+    public void updateAutor(Integer autor_id) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
-        Libro libro = (Libro) em.find(Libro.class, libro_id);
-        em.merge(libro);
+        Autor autor = (Autor) em.find(Autor.class, autor_id);
+        em.merge(autor);
         em.getTransaction().commit();
         em.close();
     }
 
-    public void deleteStudent(Integer libro_id) {
+    public void deleteAutor(Integer autor_id) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
-        Libro libro = (Libro) em.find(Libro.class, libro_id);
-        em.remove(libro);
+        Autor autor = (Autor) em.find(Autor.class, autor_id);
+        em.remove(autor);
         em.getTransaction().commit();
         em.close();
     }
 
-    public void listLibrosFromAutor(Long idAutor) {
-        EntityManager em = entityManagerFactory.createEntityManager();
-       em.getTransaction().begin();
-        List<Libro> libros = em.createQuery("SELECT * FROM libros JOIN libros_autores ON libros.id_libro = libros_autores.id_libro JOIN autores ON libros_autores.id_autor = autores.id_autor WHERE autores.id_autor = :idAutor", Libro.class)
-                .setParameter("id_autor", idAutor)
-                .getResultList();
-        for (Libro libro : libros) {
-            System.out.println(libro);
-        }
-        em.getTransaction().commit();
-    }
 }

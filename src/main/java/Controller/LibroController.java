@@ -13,18 +13,19 @@ public class LibroController {
     }
 
 
-    public void addStudent(Libro libro) {
+    public void addLibro(Libro libro) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
+        System.out.println("Inserte el título del libro");
         em.persist(libro);
         em.getTransaction().commit();
         em.close();
     }
 
-    public void listStudents() {
+    public void listLibros() {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
-        List<Libro> result = em.createQuery("from libros", Libro.class)
+        List<Libro> result = em.createQuery("from libro", Libro.class)
                 .getResultList();
         System.out.println(result.size());
 
@@ -32,12 +33,12 @@ public class LibroController {
             System.out.println(libro.toString());
         }
 
-        System.out.println("STUDENTS");
+        System.out.println("TODOS LOS LIBROS");
         em.getTransaction().commit();
         em.close();
     }
 
-    public void updateStudent(Integer libro_id) {
+    public void updateLibro(Integer libro_id) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
         Libro libro = (Libro) em.find(Libro.class, libro_id);
@@ -46,7 +47,7 @@ public class LibroController {
         em.close();
     }
 
-    public void deleteStudent(Integer libro_id) {
+    public void deleteLibro(Integer libro_id) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
          Libro libro = (Libro) em.find(Libro.class, libro_id);

@@ -7,7 +7,7 @@ import java.util.List;
 @Table(name = "libro")
 public class Libro {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Access(AccessType.FIELD)
     @Column(name = "id_libro")
     private Long id_libro;
 
