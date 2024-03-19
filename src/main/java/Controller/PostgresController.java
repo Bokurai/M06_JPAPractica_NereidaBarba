@@ -82,30 +82,35 @@ public class PostgresController {
         EntityManager em = entityManagerFactory.createEntityManager();
 
         try {
-             em.getTransaction().begin();
-
+            em.getTransaction().begin();
 
             CSVReader csvReader = new CSVReader(new FileReader("resources/temas_y_libros.csv"));
             String[] nextLine;
 
             while ((nextLine = csvReader.readNext()) != null) {
-                String tema_id = nextLine[0];
+                String idTema = nextLine[0];
                 String titulo = nextLine[1];
-                String titulo_resumen = nextLine[3];
+                String[] autores = nextLine[2].split(",");
+                String tituloResumen = nextLine[3];
                 String resumen = nextLine[4];
 
-                Libro libro = new Libro();
-                libro.setTema(em.find(Tema.class, tema_id));
-                libro.setTitulo(titulo);
-                libro.setTitulo_resumen(titulo_resumen);
-                libro.setResumen(resumen);
+                // Buscar o crear el tema
+                Tema tema = em.find(Tema.class, idTema);
+                if (tema == null) {
+                    tema = new Tema(idTema);
+                    em.persist(tema);
+                }
+
+                // Crear el libro
+                Libro libro = new Libro(tema, titulo, tituloResumen, resumen);
                 em.persist(libro);
 
-                for (String nombre_autor : nextLine[2].split(",")) {
+                // Asignar autores al libro
+                for (String nombreAutor : autores) {
                     Autor autor = em.createQuery("SELECT a FROM Autor a WHERE a.nombre = :nombre", Autor.class)
-                            .setParameter("nombre", nombre_autor.trim())
+                            .setParameter("nombre", nombreAutor.trim())
                             .getSingleResult();
-                    libro.getAutor().add(autor);
+                    libro.getAutores().add(autor);
                 }
             }
 
@@ -114,7 +119,7 @@ public class PostgresController {
             System.out.println("Se ha poblado la tabla libros con los datos correspondientes.");
         } catch (Exception e) {
             if (em.getTransaction() != null && em.getTransaction().isActive()) {
-               em.getTransaction().rollback();
+                em.getTransaction().rollback();
             }
             e.printStackTrace();
         } finally {
@@ -123,6 +128,7 @@ public class PostgresController {
             }
         }
     }
+
 
     public void poblarTablaAutores() throws IOException, CsvValidationException {
         EntityManager em = entityManagerFactory.createEntityManager();
