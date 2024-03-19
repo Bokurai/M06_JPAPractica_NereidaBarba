@@ -15,4 +15,4 @@ Como enlace entre la IDE y PostgreSQL se ha utilizado tanto JPA como Hibernate.
    que es el que se ha usado para crear el proyecto) y ejecuta el archivo LecturaliaMain.java
 
 ## Documentación
-La documentación de este proyecto está disponible [en este enlace]
+La documentación de este proyecto está disponible [en este enlace](https://bokurai.github.io/M06_JPAPractica_NereidaBarba/)
